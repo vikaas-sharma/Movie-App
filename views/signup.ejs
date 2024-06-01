@@ -1,0 +1,40 @@
+<style>
+    .sign-up{
+        text-align: center;
+        margin: 2%;
+    }
+    h1{
+        padding: 1%;
+    }
+    input[type="submit"] {
+            background-color: #04AA6D; /* Green background */
+            color: white; /* White text */
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 30%; /* Set a specific width */
+            font-size: 16px;
+            border-radius: 4px; /* Optional: Add rounded corners */
+            display: block;
+            margin: 8px auto; /* Center the button */
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049; /* Darker green on hover */
+            opacity: 0.8; /* Optional: Slightly transparent on hover */
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049; /* Darker green on hover */
+            opacity: 0.8; /* Optional: Slightly transparent on hover */
+        }
+</style>
+<div class="sign-up">
+<h1>SignUP</h1>
+<form action="/users/create" method="post">
+    <input type="text" name="name" placeholder="Enter Name" required><br><br>
+    <input type="email" name="email" placeholder="Enter Username" required><br><br>
+    <input type="password" name="password" placeholder="Enter Password" required><br><br>
+    <input type="password" name="confirm_password" placeholder="Confirm Password" required><br><br>
+    <input type="submit" value="SignUp">
+</form>
+</div>
