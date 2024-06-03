@@ -37,7 +37,9 @@ app.set('views', './views');
 `
 ### Step 4: Install Express-EJS-Layouts:
 `npm install express-ejs-layouts`
+
 Include the following lines in index.js:
+
 `const expressLayouts = require('express-ejs-layouts');
 app.use(expressLayouts);
 `
