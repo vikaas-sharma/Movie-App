@@ -1,0 +1,114 @@
+<!-- shared_playlist.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    table {
+     width: 100%;
+     border-collapse: collapse;
+   }
+   th{
+     padding: 8px;
+     text-align: center;
+     border-bottom: 1px solid #ddd;
+   }
+    td {
+     padding: 8px;
+     text-align: left;
+     border-bottom: 1px solid #ddd;
+   }
+   th {
+     background-color: #E50914;
+   }
+   tr:hover {
+     /* background-color: #E50914; */
+     cursor: pointer;
+     color: black;
+     th,td{
+       padding: 8px;
+     text-align: center;
+     border-bottom: 1px solid #ddd;
+     }
+   }
+
+   .movie-grid {
+           display: grid;
+           grid-template-columns: repeat(1, 1fr);
+           gap: 20px;
+       }
+       .movie-card {
+           position: relative;
+           overflow: hidden;
+           border: 0px solid #ddd;
+           border-radius: 8px;
+           cursor: pointer;
+           width:60%;
+           height:auto;
+          margin-left: 20%;
+       }
+
+       .movie-poster {
+           width: 25%;
+           margin-left:33%;
+           height: auto;
+           transition: transform 0.3s;
+       }
+
+       .movie-details {
+           position: absolute;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           background-color: rgba(0, 0, 0, 0.8);
+           color: #fff;
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
+           opacity: 0;
+           transition: opacity 0.3s;
+       }
+
+       .movie-card:hover .movie-details {
+           opacity: 1;
+       }
+
+       .movie-title {
+           font-size: 16px;
+           margin-bottom: 8px;
+       }
+
+       .movie-year {
+           font-size: 14px;
+       }
+
+      
+ </style>
+</head>
+<body>
+  
+    <center><h1>Playlist created by <%=user.name %></h1></center>
+    <br/>
+    
+        <% if (movies.length > 0) { %>
+          <% movies.forEach(function(movie) { %>
+            <div class="movie-grid">
+                      <div class="movie-card">
+                          <img class="movie-poster" src="<%= movie.poster%>" alt="<%= movie.movie %> Poster">
+                          <div class="movie-details">
+                              <h3 class="movie-title"><%= movie.movie %></h3>
+                              <p class="movie-year"><%= movie.year %></p>
+                          </div>
+                      </div>
+            </div>
+          <% }); %>
+        <% } else { %>
+          <h1>No movies found for this user as public list</h1>
+        <% } %>
+     
+  
+</body>
+</html>

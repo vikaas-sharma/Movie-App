@@ -2,117 +2,307 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: Helvetica, Arial, Verdana, sans-serif;
     font-size: 20px;
+    color: white;
+}
+
+body {
+    background: url(https://img.freepik.com/free-photo/movie-background-collage_23-2149876023.jpg?w=740&t=st=1717328597~exp=1717329197~hmac=1fb9b1e4b194a01ed655e6d9ac5bc616b3fec5211cf696facb084daec1eed4ba) no-repeat center center fixed; 
+    background-size: cover;
+}
+
+.container {
+    background: url(https://img.freepik.com/free-photo/movie-background-collage_23-2149876023.jpg?w=740&t=st=1717328597~exp=1717329197~hmac=1fb9b1e4b194a01ed655e6d9ac5bc616b3fec5211cf696facb084daec1eed4ba) no-repeat center center fixed; 
+    background-size: cover;
 }
 
 .navbar {
-    background-color: #2f2626;
     color: white;
+    background: url(https://img.freepik.com/free-photo/movie-background-collage_23-2149876023.jpg?w=740&t=st=1717328597~exp=1717329197~hmac=1fb9b1e4b194a01ed655e6d9ac5bc616b3fec5211cf696facb084daec1eed4ba) no-repeat center center fixed; 
+    background-size: cover;
+}
+
+.navbar:hover {
+    background-color: #ff4545;
 }
 
 .nav1 {
     display: flex;
-    justify-content: space-between;
+    align-items: center; 
+    margin-top: 20px;
 }
 
 .navbar .nav1 li {
     list-style: none;
-    text-decoration: none;
-    padding: 1% 2%;
-    font-size: 20px;
+    padding: 5px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
 }
 
-.navbar .nav1 li a{
+.navbar .nav1 li a {
     text-decoration: none;
     color: white;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    font-family: Arial;
+    font-weight: lighter;
+    margin-left: 5px;
+    width: 80px;
+    background-color: transparent;
+    font-weight: bold;
 }
 
-main{
+.nav1 .logo1,
+.nav1 .logo2,
+.nav1 .logo3,
+.nav1 .logo4,
+.nav1 .l {
+    color: white; 
+    font-weight: bold;
+}
+
+.nav1 .logo1 {
+    font-size: 50px;
+    font-family: 'Arial Narrow Bold';
+    margin-left: 75px;
+}
+
+.nav1 .logo2 {
+    font-size: 50px;
+    margin-left: 5px;
+}
+
+.nav1 .logo3,
+.nav1 .logo4,
+.nav1 .l {
+    font-size: 30px;
+}
+
+#movie-name {
+    width: 50%;
+    padding: 20px;
+    margin-left: 75px;
+    background-color: transparent;
+    transition: transform 250ms ease-in-out;
+    font-size: 14px;
+    line-height: 18px;
+    color: white;
+    /* background-image: url(https://img.freepik.com/free-photo/movie-background-collage_23-2149876023.jpg?w=740&t=st=1717328597~exp=1717329197~hmac=1fb9b1e4b194a01ed655e6d9ac5bc616b3fec5211cf696facb084daec1eed4ba); */
+    border: 2px solid white;
+    /* transition: all 250ms ease-in-out; */
+}
+
+#movie-name::placeholder {
+    color: rgb(255, 255, 255, 0.5c);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* #movie-name:hover,
+#movie-name:focus {
+    padding: 12px 0;
+    outline: 0;
+    border: 1px solid transparent;
+    border-bottom: 2px solid white;
+    border-radius: 0;
+    background-position: 100% center;
+} */
+
+.title h2 {
+    margin-top: 5px;
+}
+
+.left-link {
+    order: 1; 
+}
+
+.plane {
+    background-color: black;
+    padding: 5px 5px;
+}
+
+.plane p {
+    color: white;
+    margin-left: 38%;
+    font-size: 13px;
+}
+
+.right-link {
+    margin-left: 900px;
+}
+
+#clicked {
+    margin-left: 8px;
+    border-radius: 0.5em;
+    background-color: #6082B6;
+    border: 2px solid;
+    color: white;
+    font-weight: bold;
+}
+
+#clicked:hover {
+    background-color: #4a6a8c;
+    color: white;
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.right-links1 {
+    border-radius: 0.5em;
+    background-color: transparent;
+    margin-top: 10px;
+    height: 30px;
+    margin-right: 12px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    margin-bottom: 10px; 
+}
+
+.right-links1:hover {
+    background-color: #6082B6;
+}
+
+.right-links2 {
+    border: 1px solid;
+    border-radius: 0.5em;
+    background-color: #6082B6;
+    margin-top: 10px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; 
+    margin-right: 75px;
+}
+
+.right-links2:hover {
+    background-color: #4a6a8c;
+}
+
+.right-links3 {
+    border: 2px solid red;
+    border-radius: 0.5em;
+    background-color: #6082B6;
+    margin-bottom: 10px; 
+    margin-right: 75px;
+}
+
+.navbar .nav1 li a .signout {
+    padding: 10px;
+}
+
+main {
     background-color: white;
     text-align: center;
 }
 
-.search-container{
+.search-container {
     display: flex;
     justify-content: center;
-    padding: 2%;
-    background-color: C6EBC5;
+    padding: 6%;
+    background: url(https://img.freepik.com/free-photo/movie-background-collage_23-2149876023.jpg?w=740&t=st=1717328597~exp=1717329197~hmac=1fb9b1e4b194a01ed655e6d9ac5bc616b3fec5211cf696facb084daec1eed4ba) no-repeat center center fixed; 
+    background-size: cover;
 }
 
-.title{
-    padding-right: 2%;
-}
-
-.search-container #movie-name{
-    padding: 0.25% 1.5%;
+.search-container #movie-name {
+    padding: 20px 20px;
     font-size: 1rem;
 }
-input{
+
+input {
     padding: 0.1% 0.1%;
     width: 30%;
 }
 
-.search-container button{
+.search-container button {
     margin: 0 2%;
     width: 10%;
 }
 
-.movie-info h1{
+.movie-info h1 {
     text-align: center;
     font-size: 2rem;
     padding: 2%;
 }
 
-.movie-info-1 ul{
+.movie-info-1 ul {
     display: flex;
 }
 
-.movie-info-1 .movie-info li{
+.movie-info-1 .movie-info li {
     flex-direction: row;
     padding: 2% 0%;
     padding-right: 10%;
     list-style: none;
     font-size: 1rem;
 }
-#result{
+
+#result {
     display: flex;
     flex-direction: row;
-}
-img{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 10%;
+    color: white;
+    background-color: rgb(137, 207, 240,0.3);
+    border-radius: 1rem;
+    width: 1000px;
+    margin-left: 20%;
+    border: 0.5px solid white;
+    border-top-width: 0;
+    border-bottom-width: 0;
 }
 
-.info{
+.info {
     display: block;
     padding: 5%;
 }
 
-p{
+p {
     padding: 0.8%;
 }
 
-.line1{
+.line1 {
     font-weight: bold;
 }
 
-#add-to-playlist{
+input[type="checkbox"] {
+    margin-left: 28%;
+    margin-right: -200px;
+    size: 5%;
+}
+
+#add-to-playlist {
     text-align: center;
 }
-#add-to-playlist #radio-tag{
+
+#add-to-playlist #radio-tag {
     text-align: center;
     padding: 2%;
     width: 1%;
 }
 
+button#share-playlist:hover {
+    background-color: #4a6a8c;
+    color: white;
+    cursor: pointer;
+}
+
+button#share-playlist {
+    display: inline-block;
+    width: 80px;
+    margin-left: 20px;
+    color: white;
+    background: #6082B6;
+    margin-right: 10px;
+    margin-bottom: 6px;
+}
+
 #palylist-button {
-    
     display: flex;
     justify-content: center;
-    background: linear-gradient(-45deg, #3f00b5, #9f69fe, #27c8b7, #3f00b5);
+    background:  #6082B6;
     background-size: 800% 400%;
     padding: 1.6vh 3.2vw;
     border: none;
@@ -122,8 +312,9 @@ p{
     color: white;
     margin: auto;
     width: 30%;
-
-    transition: all .5s ease-in-out;
+    margin-top: -20px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
     animation: gradient 10s infinite cubic-bezier(.62, .28, .23, .99) both;
 }
 
@@ -136,35 +327,57 @@ p{
     animation: gradient 3s infinite;
     transform: scale(0.8);
 }
-#note{
-    text-align: center;
-    font-weight: 600;
+
+#mo {
+    font-size: 50px;
+    margin-bottom: 20px;
+    font-weight: bold;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+#note {
+    margin-top: 10%;
+    text-align: center;
+    font-weight: 600 bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#note p {
+    font-size: 25px;
+}
 
 @keyframes gradient {
     0% {
         background-position: 0% 50%;
     }
-
     50% {
         background-position: 100% 50%;
     }
-
     100% {
         background-position: 0% 50%;
     }
 }
 
 @media screen and (max-width: 720px) {
-    #result{
+    #result {
         flex-direction: column;
     }
-    
 }
 
-@media screen and (max-width: 480px) {
-    
+.right-links4 {
+    border: 1px solid;
+    border-radius: 0.5em;
+    background-color: #6082B6;
+    border: none;
+    color: white;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 
+.right-links4:hover {
+    background-color: #4a6a8c;
+}

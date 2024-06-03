@@ -1,40 +1,93 @@
 <style>
-    .sign-up{
-        text-align: center;
-        margin: 2%;
-    }
-    h1{
-        padding: 1%;
-    }
-    input[type="submit"] {
-            background-color: #04AA6D; /* Green background */
-            color: white; /* White text */
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            width: 30%; /* Set a specific width */
-            font-size: 16px;
-            border-radius: 4px; /* Optional: Add rounded corners */
-            display: block;
-            margin: 8px auto; /* Center the button */
-        }
-        input[type="submit"]:hover {
-            background-color: #45a049; /* Darker green on hover */
-            opacity: 0.8; /* Optional: Slightly transparent on hover */
-        }
-        input[type="submit"]:hover {
-            background-color: #45a049; /* Darker green on hover */
-            opacity: 0.8; /* Optional: Slightly transparent on hover */
-        }
+    .signin-container h1 {
+    margin-right: 50%;
+    padding: 20px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.signin-container {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 5%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 64%;
+    margin-left: 15%;
+    background-color: transparent;
+    border: 1px solid white;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #6082B6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    width: 20%;
+    margin-left: 35%;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #4a6a8c;
+    transform: scale(1.05);
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
 </style>
-<div class="sign-up">
-<h1>SignUP</h1>
-<form action="/users/create" method="post">
-    <input type="text" name="name" placeholder="Enter Name" required><br><br>
-    <input type="email" name="email" placeholder="Enter Username" required><br><br>
-    <input type="password" name="password" placeholder="Enter Password" required><br><br>
-    <input type="password" name="confirm_password" placeholder="Confirm Password" required><br><br>
-    <input type="submit" value="SignUp">
-</form>
+
+<div class="signin-container">
+    <h1>Sign Up</h1>
+    <form id="signupForm" action="/users/create" method="post">
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        <input type="text" id="email" name="email" placeholder="Enter your email or mobile number" required>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        <input type="password" id="password1" name="password1" placeholder="Confirm your password" required>
+        <button type="submit" onclick="validateForm()">Sign Up</button>
+    </form>
 </div>
+
+<script>
+    function validateForm() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("password1").value;
+        if (password.length < 8) {
+            alert("Password must be at least 8 characters long.");
+            return false;
+        }
+        else if (password !== confirmPassword) {
+            alert("Passwords do not match.");
+            return false;
+        }
+        else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$%*?&])[A-Za-z\d@$%*?&]{8,}$/.test(password)) {
+            alert("Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.");
+            return false;
+        }
+        document.getElementById("signupForm").submit();
+    }
+</script>

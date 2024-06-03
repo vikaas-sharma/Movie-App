@@ -1,5 +1,5 @@
 const User = require('../models/user');
-
+const notifier = require('node-notifier');
 module.exports.Profile = function(req,res){
     return res.render('profile', {
         title: 'Profile'
@@ -17,20 +17,35 @@ module.exports.signin = function(req,res){
     if(req.isAuthenticated()){
         return res.redirect('/');
     }
+    const notification = {
+        type: 'info',
+        message: 'SignUp first!'
+    };
     return res.render('signin', {
-        title: "SignIn"
+        title: "SignIn",
+        notification: notification
     })
 }
 
 module.exports.create = function(req,res){
-    if(req.body.password != req.body.confirm_password){
-        console.log("Not matching passwords while signup");
+    if(req.body.password != req.body.password1){
+        notifier.notify({
+            title: 'Wrong Matching',
+            message: 'Not matching passwords while signup!',
+            sound: true,
+            wait: true
+          });
         return res.redirect('back');
     }
 
     User.findOne({email:req.body.email},function(err,user){
         if(err){
-            console.log("Error in finding in databse")
+            notifier.notify({
+                title: 'No User Found',
+                message: 'Error in finding in databse!',
+                sound: true,
+                wait: true
+              });
             return;
         }
 
@@ -40,7 +55,12 @@ module.exports.create = function(req,res){
                     console.log("Error in creating");
                     return;
                 }
-                console.log("Created User in database for signup");
+                notifier.notify({
+                    title: 'User Created',
+                    message: 'Created User in database for signup!',
+                    sound: true,
+                    wait: true
+                  });
                 return res.redirect('/users/signin');
             })
         }

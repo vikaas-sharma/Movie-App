@@ -1,43 +1,42 @@
 require("dotenv").config();
 const mongoose = require('mongoose');
+const flash = require('connect-flash');
 
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 8000;
+const port = 8000;
 
-// used for session cookie
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-startergy');
-//Mongo-store
+
 const MongoStore = require('connect-mongo')
 
-//cookie-parser
+
+
 const cookieParser = require('cookie-parser');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-//database
+
 const db = require('./config/mongoose');
-//include layouts
+
 const expressLayouts = require('express-ejs-layouts');
 app.use(expressLayouts);
 
-//for styling static files
+
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
 
-//static files
 app.use(express.static('./assets'));
 
-// EJS Set-up
+
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
-//MongoStore stores session cookies
 app.use(session({
     name: 'MovieApp',
-    secret: process.env.SESSION_SECRET || 'blahsomething',
+    secret: process.env.SESSION_SECRET || 'hacktivespace',
     saveUninitialized: false,
     resave: false,
     cookie: {
@@ -52,10 +51,22 @@ app.use(session({
         }
     )
 }));
+app.use(flash());
+app.use((req, res, next) => {
+    res.locals.success_messages = req.flash('success');
+    res.locals.error_messages = req.flash('error');
+    res.locals.info_messages = req.flash('info');
+    next();
+});
 
 app.use(passport.initialize());
 app.use(passport.session());
+
 app.use(passport.setAuthenticatedUser);
+app.use((req, res, next) => {
+    res.locals.req = req;
+    next();
+});
 
 app.use('/', require('./routes'));
 

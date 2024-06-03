@@ -1,16 +1,22 @@
 <div class="navbar">
-
     <% if(locals.user){ %>
-        <ul class="nav1">
-        <li><h1>MovieLib</h1></li>
-        <li><a href="/users/profile"><%= user.name%></a></a></li> 
-        <li><a href="/users/signout">Sign Out</a></li>
-        </ul>
+      <ul class="nav1">
+        <li><h1><span class="logo1">M</span><spa class="logo3">ovie</spa><span class="l"></span><span class="logo2">L</span><span class="logo4">ibrary</span></h1></li>
+        <li class="right-link"> </li>
+        <li class="right-links4"><a href="/users/signout">Sign Out</a></li>
+      </ul>
+    <% }else if (req.path === '/movies/share/:id'){ %>
+      <ul class="nav1">
+        <li><h1><span class="logo1">M</span><spa class="logo3">ovie</spa><span class="l"></span><span class="logo2">L</span><span class="logo4">ibrary</span></h1></li>
+        <li class="right-link"> </li>
+        <li class="right-links4"><a href="/users/signout">Sign Out</a></li>
+      </ul>
     <% }else{ %>
-        <ul class="nav1">
-        <li><h1>MovieLib</h1></li>
-        <li><a href="/users/signin">Sign In</a></li>
-        <li><a href="/users/signup">Sign Up</a></li>
-        </ul>
+      <ul class="nav1">
+        <li><h1><span class="logo1">M</span><spa class="logo3">ovie</spa><span class="l"></span><span class="logo2">L</span><span class="logo4">ibrary</span></h1></li>
+        <li class="right-link"> </li>
+        <li class="right-links1"><a href="/users/signin">Sign In</a></li>
+        <li class="right-links2"><a href="/users/signup">Sign Up</a></li>
+      </ul>
     <%}%>
-    </div>
+  </div>
